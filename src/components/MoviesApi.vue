@@ -1,6 +1,6 @@
 <template>
 <div>
-    <h2>{{movieobject.title}} </h2>
+    <h2>{{movieobject.title}} {{movieobject.name}} </h2>
     <img :src="`http://image.tmdb.org/t/p/w500/${movieobject.poster_path}`" :alt="name">
 </div>
  
