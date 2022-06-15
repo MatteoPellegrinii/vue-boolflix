@@ -1,28 +1,36 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <SearchProjectVue @search="searchmovie" />
+    <MoviesProjectVue :msg="text"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import MoviesProjectVue from './components/MoviesProject.vue';
+import SearchProjectVue from './components/SearchProject.vue';
+
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    MoviesProjectVue,
+    SearchProjectVue
+},
+data(){
+  return{
+    text: "",
   }
+},
+methods: {
+          searchmovie(parameter){
+            this.text = parameter
+            console.log(this.text);
+        }
 }
+}
+
 </script>
 
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
