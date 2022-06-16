@@ -26,6 +26,11 @@ import LangFlag from 'vue-lang-code-flags';
  
 Vue.component('lang-flag', LangFlag);
 
+
+Vue.filter('truncate', function (text, stop, clamp) {
+  return text.slice(0, stop) + (stop < text.length ? clamp || '...' : '')
+})
+
 new Vue({
   render: h => h(App),
 }).$mount('#app')

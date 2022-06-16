@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="contenitoreproject">
     <MoviesApiVue 
         v-for="(item, index) in this.arrayfilm"
         :key="index"
@@ -36,5 +36,16 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.contenitoreproject{
+    width: 100%;
+    background-color: grey;
+    min-height: calc(100vh - 50px);
+    display: flex;
+    flex-wrap: wrap;
+}
 </style>
