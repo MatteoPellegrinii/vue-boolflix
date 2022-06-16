@@ -1,8 +1,13 @@
 <template>
 <div>
     <h2>{{movieobject.title}} {{movieobject.name}} </h2>
-    <h4>lingua: {{movieobject.original_language}} </h4>
-    <h5>voto {{votechange()}}/5 <font-awesome-icon icon="fa-solid fa-star"/></h5>
+    <h4>lingua: <lang-flag :iso="movieobject.original_language" />  </h4>
+    <h5>voto  
+      <font-awesome-icon class="star-icon" icon="fa-solid fa-star" v-for="(star, index) in votechange"
+                    :key="index" /> 
+      <font-awesome-icon class="star-icon" icon="fa-regular fa-star" v-for="(star, index) in starempty"
+                    :key="index" /> 
+    </h5>
     <img :src="`http://image.tmdb.org/t/p/w500/${movieobject.poster_path}`" :alt="name">
 </div>
  
@@ -10,22 +15,19 @@
 
 <script>
 export default {
-  data(){
-    return{
-      votonuovo: '',
-    }
-  },
   name: 'MoviesAPi',
       props: {
         name: String,
         src: String,
         movieobject: Object
     },
-    methods:{
+    computed:{
       votechange(){
-        this.votonuovo = Math.floor(this.movieobject.vote_average / 2) ;
-        return this.votonuovo
+        return Math.floor(this.movieobject.vote_average / 2) ;
       },
+      starempty(){
+        return 5 -  Math.floor(this.movieobject.vote_average / 2) ;
+      }
     }
 }
 </script>
