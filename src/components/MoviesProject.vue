@@ -1,13 +1,20 @@
 <template>
 <div>
     <MoviesApiVue 
-        v-for="(item, index) in this.array"
+        v-for="(item, index) in this.arrayfilm"
         :key="index"
         :movieobject="item"
         :name =  "item.title"
         :src = "item.poster_path"
       />
-</div>
+    <SerieApi
+        v-for="(item, index) in this.arrayserie"
+        :key="index"
+        :movieobject="item"
+        :name =  "item.title"
+        :src = "item.poster_path"
+    />
+    </div>
  
 </template>
 
@@ -15,12 +22,14 @@
 
 
 import MoviesApiVue from './MoviesApi.vue';
+import SerieApi from './SerieApi.vue'
 export default {
     name: "MoviesProject",
-    components: { MoviesApiVue },
+    components: { MoviesApiVue, SerieApi },
     props:{
         msg: String,
-        array: Array,
+        arrayfilm: Array,
+        arrayserie: Array,
     },
 }
 </script>

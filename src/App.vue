@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <SearchProjectVue @search="searchmovie" />
-    <MoviesProjectVue :msg="text" :array="newArray" />
+    <MoviesProjectVue :msg="text" :arrayfilm="newArray" :arrayserie="newArrayserie" />
   </div>
 </template>
 
@@ -23,6 +23,7 @@ data(){
     newapiUrl:'',
     newArray: [],
     apiserie: '',
+    newArrayserie: []
   }
 },
 methods: {
@@ -43,8 +44,9 @@ methods: {
         getSerie(){
             axios.get(this.apiserie)
             .then(result =>{
-            this.newArray = result.data.results;
+            this.newArrayserie = result.data.results;
             console.log(result);
+            console.log(this.newArrayserie);
 
           })
         }

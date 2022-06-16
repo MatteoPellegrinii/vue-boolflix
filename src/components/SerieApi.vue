@@ -1,6 +1,6 @@
 <template>
 <div>
-    <h2>{{movieobject.title}} </h2>
+    <h2>{{movieobject.name}} </h2>
     <h4>lingua: <lang-flag :iso="movieobject.original_language" />  </h4>
     <h5>voto  
       <font-awesome-icon class="star-icon" icon="fa-solid fa-star" v-for="(star, index) in votechange"
@@ -15,7 +15,7 @@
 
 <script>
 export default {
-  name: 'MoviesApi',
+  name: 'SerieApi',
       props: {
         name: String,
         src: String,
