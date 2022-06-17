@@ -4,14 +4,14 @@
     <div class="card">
       <img class="none" :src="`http://image.tmdb.org/t/p/w200/${movieobject.poster_path}`" :alt="name">
 
-      <div class="description d-flex flex-column" :class="!cardHover ? 'd-none' : ''">
+      <div class="description d-flex flex-column">
           <h2>{{movieobject.title}} </h2>
           <h4>lingua: <lang-flag :iso="movieobject.original_language" />  </h4>
           <h5>voto  
             <font-awesome-icon class="star-icon" icon="fa-solid fa-star" v-for="(star, index) in votechange"
-                    :key="index" /> 
+                    :key="index + 'stargood'" /> 
             <font-awesome-icon class="star-icon" icon="fa-regular fa-star" v-for="(star, index) in starempty"
-                    :key="index" /> 
+                    :key="index + 'starbad'" /> 
           </h5>
           <p class="testo">{{movieobject.overview | truncate(500) }} </p>
       </div>

@@ -2,14 +2,14 @@
 <div class="contenitoreproject">
     <MoviesApiVue 
         v-for="(item, index) in this.arrayfilm"
-        :key="index"
+        :key="'film' + index"
         :movieobject="item"
         :name =  "item.title"
         :src = "item.poster_path"
       />
     <SerieApi
         v-for="(item, index) in this.arrayserie"
-        :key="index"
+        :key="'tv'+index"
         :movieobject="item"
         :name =  "item.title"
         :src = "item.poster_path"
@@ -19,8 +19,6 @@
 </template>
 
 <script>
-
-
 import MoviesApiVue from './MoviesApi.vue';
 import SerieApi from './SerieApi.vue'
 export default {
